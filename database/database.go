@@ -18,17 +18,11 @@ type Dbinstance struct {
 var DB Dbinstance
 
 func ConnectDb() {
-	// dsn := fmt.Sprintf(
-	// 	"host=db user=%s password=%s dbname=%s port=5432 sslmode=disable TimeZone=Asia/Tehran",
-	// 	os.Getenv("DB_USER"),
-	// 	os.Getenv("DB_PASSWORD"),
-	// 	os.Getenv("DB_NAME"),
-	// )
 	dsn := fmt.Sprintf(
-		"host=127.0.0.1 user=%s password=%s dbname=%s port=5432 sslmode=disable TimeZone=Asia/Tehran",
-		"me",
-		"password",
-		"api",
+		"host=db user=%s password=%s dbname=%s port=5432 sslmode=disable TimeZone=Asia/Tehran",
+		os.Getenv("DB_USER"),
+		os.Getenv("DB_PASSWORD"),
+		os.Getenv("DB_NAME"),
 	)
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
